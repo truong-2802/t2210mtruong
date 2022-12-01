@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <button onclick="userClick()"
+           onmouseenter="userMouseIn()"
+           onmouseleave="userMouseOut()"
+   >click me!</button>
+
+   <input  onkeyDown="keyDown()"
+           onkeyUp="keyUp()"
+           id="ips" placeholder="seach..." type="text" name="seach"/>
+   <select id="sl" name="city"  onchange="change()">
+       <option value="hn">HN</option>
+       <option value="sg">SG</option>
+       <option value="dn">DN</option>
+   </select>
+   <span id="city">HN</span>
+
+    <script type="text/javascript">             // on click : báo trc vào sự kiện click vào
+    var ips= document.getElementById("ips");
+    var sl= document.getElementById("sl");
+    var ct= document.getElementById("city");
+
+
+    function keyDown(){
+        console.log("key Down..."+ips.value);
+    }
+
+    function keyUp(){
+        console.log("key Up..."+ips.value);
+    }
+    // keyup hiện giá trị  vừa nhập vào , keydown hiện giá trị lâu dài
+
+    function change(){
+       // console.log("change..."+sl.value);
+        ct.innerText=sl.value;//viết để in ra bên phải ô
+    }
+
+        function userClick(){
+            alert("Nhấn vào link bên dưới để tái game!");
+        }
+
+        function  userMouseIn(){
+            console.log("Mouse in...");// đưa chuột vào hiện
+        }
+
+        function  userMouseOut(){
+            console.log("Mouse out...");// đưa chuột ra hiện
+        }
+    </script>
+
+</body>
+</html>

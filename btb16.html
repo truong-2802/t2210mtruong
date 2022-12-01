@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="css/btb16.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <div id="weather">
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function (){
+        var reuslut = this.responseText;
+        var data = JSON.parse(reuslut);
+        var datas = data.list;
+        for (var i=0; i<datas.length;i++){
+            var date=datas[i].dt_txt;
+            var doc=datas[i].main.temp;
+            var des=datas[i].weather[0].description;
+            var icon=datas[i].weather[0].icon;
+            document.getElementById("weather").innerHTML+=`<div>
+        <p>${date}</p>
+        <h2>${doc}</h2>
+        <p>${des}</p>
+        <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+</div>`;
+        }
+    }
+    xhttp.open("GET","http://api.openweathermap.org/data/2.5/forecast?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric");
+    xhttp.send();
+</script>
+
+</body>
+</html>

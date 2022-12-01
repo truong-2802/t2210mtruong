@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo js2</title>
+</head>
+<body>
+<h1 id = "x-name"> Tên một người nào đó</h1>
+<ul id="thucdon">
+
+</ul>
+   <script type="text/javascript">
+       var menu=[
+           "Phở bò ",
+           " Phở gà ",
+           "Trứng vịt lộn",
+           " Xôi xéo",
+       ]// dữ liệu
+       var td=document.getElementById("thucdon");// lấy dữ liệu phần trên <ul>
+       for(var i=0; i<menu.length; i++){
+           var pt= `<li>${menu[i]}</li>`;
+           td.innerHTML +=pt;// nạp thêm giá trị vào
+       }// nạp dữ liệu
+
+     var obj1 = {
+       name: "Lê Anh Thư",
+       age: 18,
+       address: "Hà Nội",
+       gender: "Nữ",
+     }
+     console.log(obj1.name);
+     var xh1 = document.getElementById("x-name");
+     setTimeout(function (){
+       //xh1.innerText="Đinh Doanh Việt "; // đổi phần tử HTML (sửa chữ)
+       //xh1.innerHTML ="<i>Lê Anh Thư</i>"// Chèn phần tử  HTML
+       xh1.innerHTML= obj1.name;
+       xh1.style.color="blue";// đổi màu chữ
+        // background-color .( với các style có dấu gạch ngang ở giữa)
+         xh1.style.backgroundColor="orange";
+     },3000);
+
+   </script>
+
+</body>
+</html>

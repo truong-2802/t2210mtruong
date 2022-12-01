@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weather</title>
+    <style>
+        .section{
+            float: left;
+            width: 100%;
+        }
+        .container{
+            float: none;
+        }
+        .container > div{
+            display: block;
+            width: 100%;
+        }
+        .container >div>div{
+            float: left;
+            width: 21%;
+            margin: 10px;
+            background-color: #436F84;
+            color: #F1F5F6;
+            padding: 20px;
+        }
+        h1{
+            font-size: 16px;
+        }
+        body{
+            background-color: #266B8F;
+        }
+        img{
+            float: right;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <div id="weather">
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function (){
+        var reuslut = this.responseText;
+        var data = JSON.parse(reuslut);
+        var datas = data.list;
+        for (var i=0; i<datas.length;i++){
+            var date=datas[i].dt_txt;
+            var doc=datas[i].main.temp;
+            var des=datas[i].weather[0].description;
+            var icon=datas[i].weather[0].icon;
+            document.getElementById("weather").innerHTML+=`<div>
+        <p>${date}</p>
+        <h2>${doc}</h2>
+        <p>${des}</p>
+        <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+</div>`;
+        }
+    }
+    xhttp.open("GET","http://api.openweathermap.org/data/2.5/forecast?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric");
+    xhttp.send();
+</script>
+</body>
+</html>

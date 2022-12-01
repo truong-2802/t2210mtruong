@@ -1,0 +1,29 @@
+.section{
+    float: left;
+    width: 100%;
+}
+.container{
+    float: none;
+}
+.container > div{
+    display: block;
+    width: 100%;
+}
+.container >div>div{
+    float: left;
+    width: 21.6%;
+    margin: 10px;
+    background-color: #436F84;
+    color: #F1F5F6;
+    padding: 20px;
+}
+h1{
+    font-size: 16px;
+}
+body{
+    background-color: #266B8F;
+}
+img{
+    float: right;
+    margin-right: 50px;
+}
