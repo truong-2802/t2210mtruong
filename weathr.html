@@ -9,6 +9,12 @@
 
 <section class="secsion main">
   <div class="container">
+    <select name="city" id="select-city" onchange="curentweather()">
+      <option value="hanoi">Hà Nội</option>
+      <option value="saigon">TP.HCM </option>
+      <option value="london">London</option>
+      <option value="beijing">Bắc Kinh</option>
+    </select>
     <h1 id="cityname" >Tên thành phố</h1>
       <h2><span id="nd">35</span> <sup>o</sup>C</h2>
       <h2 >Độ ẩm:<span id="da"></span>% </h2>
@@ -18,48 +24,52 @@
   </div>
 </section>
 <script type="text/javascript">
-  var xhttp = new XMLHttpRequest();
-  xhttp.onload = function (){
-    // step 1: get data from web api
-    // step 2: transfer to js object
-        var result= this.responseText;
-        var data= JSON.parse(result);
+  function curentweather() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      // step 1: get data from web api
+      // step 2: transfer to js object
+      var result = this.responseText;
+      var data = JSON.parse(result);
       //  console.log(data);
-        // end step 2
-        // step 3 : using data
-        var city= data.name;
-        var ctn=document.getElementById("cityname");
-        ctn.innerText=city;
-        // nhiệt độ
-        var temp= data.main.temp;
-        var nd=document.getElementById("nd");
-        nd.innerText=temp;
-        // độ ẩm
-        var humidity=data.main.humidity;
-        var da=document.getElementById("da");
-        da.innerText=humidity;
-        // áp suất
-        var pressure=data.main.pressure;
-        var as =document.getElementById("as");
-        as.innerText= pressure;
-        // khí hậu
-        var weather = data.weather;//array;
-        var str="";
-        var ic="";
-        for(var i=0; i< weather.length;i++){
-            str += weather[i].description;
-            ic = weather[i].icon;
-        }
-        console.log(str);
-       document.getElementById("str").innerText=str;
+      // end step 2
+      // step 3 : using data
+      var city = data.name;
+      var ctn = document.getElementById("cityname");
+      ctn.innerText = city;
+      // nhiệt độ
+      var temp = data.main.temp;
+      var nd = document.getElementById("nd");
+      nd.innerText = temp;
+      // độ ẩm
+      var humidity = data.main.humidity;
+      var da = document.getElementById("da");
+      da.innerText = humidity;
+      // áp suất
+      var pressure = data.main.pressure;
+      var as = document.getElementById("as");
+      as.innerText = pressure;
+      // khí hậu
+      var weather = data.weather;//array;
+      var str = "";
+      var ic = "";
+      for (var i = 0; i < weather.length; i++) {
+        str += weather[i].description;
+        ic = weather[i].icon;
+      }
+      console.log(str);
+      document.getElementById("str").innerText = str;
 
-        var src=`https://openweathermap.org/img/wn/${ic}@2x.png`;
-        document.getElementById("icon").src = src;
+      var src = `https://openweathermap.org/img/wn/${ic}@2x.png`;
+      document.getElementById("icon").src = src;
 
     }
-    xhttp.open("GET", "https://api.openweathermap.org/data/2.5/weather?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric")
+    var sl_city = document.getElementById("select-city");
+    var ct = sl_city.value;
+    xhttp.open("GET", `https://api.openweathermap.org/data/2.5/weather?q=${ct}&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`)
     xhttp.send();
-
+  }
+  curentweather();
 </script>
 
 </body>

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.secsion{
+    float:left;
+    width: 100%;
+}
+.ll.img{
+    width: calc(33.3% - 30px);
+    max-width: 100%;
+    width: 700px;
+    height: 300px;
+}
+h2{
+    text-align: center;
+}
+
+p{
+    color: mediumaquamarine;
+}
+

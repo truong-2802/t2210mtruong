@@ -1,0 +1,15 @@
+body{
+    background-image: url("../images/clouds-1046109_960_720.jpg");
+    background-size: cover;
+    color: #ffffff;
+}
+.weather{
+    background-color: #2c303470;
+    height: 175px;
+}
+.weather h4{
+    font-size: 20px;
+}
+.weather img{
+    transform: translate(170px,-120px);
+}

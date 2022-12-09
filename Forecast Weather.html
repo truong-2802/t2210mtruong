@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="css/forecast.css"/>
 </head>
 <body>
-<nav>
-    <div class="container">
-        <button type="button" class="btn btn-outline-light" onclick="forecast('hanoi')">Hà Nội</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('saigon')">Sài Gòn</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('haiphong')">Hải Phòng</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('london')">London</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('osaka')">Osaka</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('washington')">Washington</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('berlin')">Berlin</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('cairo')">Cairo</button>
-        <button type="button" class="btn btn-outline-light" onclick="forecast('Sydney')">Sydney</button>
-    </div>
-</nav>
+    <nav>
+        <div class="container">
+            <button type="button" class="btn btn-outline-light"  onclick="forecast('hanoi')"> Hà Nội</button>
+            <button type="button" class="btn btn-outline-light"  onclick="forecast('saigon')"> Sài Gòn</button>
+            <button type="button" class="btn btn-outline-light"  onclick="forecast('london')">London</button>
+            <button type="button" class="btn btn-outline-light"  onclick="forecast('osaka')"> Osaka</button>
+            <button type="button" class="btn btn-outline-light"  onclick="forecast('washington')"> Washington</button>
+            <button type="button" class="btn btn-outline-light"  onclick="forecast('berlin')">Berlin</button>
+            <button type="button" class="btn btn-outline-light" onclick="forecast('cairo')">Cairo</button>
+            <button type="button" class="btn btn-outline-light" onclick="forecast('Sydney')">Sydney</button>
+            <button type="button" class="btn btn-outline-light" onclick="forecast('tokio')">Tokio</button>
+        </div>
+    </nav>
 <section>
     <div class="container">
         <div class="row" id="forecast">
@@ -27,14 +27,15 @@
         </div>
     </div>
 </section>
+
 <script type="text/javascript">
-    function forecast(ct){
+    function forecast( ct){
         var xhttp = new XMLHttpRequest();
         xhttp.onload = function (){
             var data = JSON.parse(this.responseText);
             var ls = data.list;
             var fc = document.getElementById("forecast");
-            fc.innerHTML = '';
+            fc.innerHTML='';
             for(var i=0;i<ls.length;i++){
                 var pt = `<div class="col-3 mb-2 mt-2">
                     <div class="weather card">
@@ -46,7 +47,6 @@
                         </div>
                     </div>
                 </div>`;
-
                 fc.innerHTML += pt;
             }
         }
