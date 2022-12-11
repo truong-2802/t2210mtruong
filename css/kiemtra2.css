@@ -1,6 +1,7 @@
 .a{
     text-align: center;
     background-color: #702C91;
+    height: 100px;
 }
 .container{
     text-align: center;
@@ -14,3 +15,17 @@
 .c{
     margin: 20px;
 }
+body{
+    text-align: center;
+    background-color: #13653f;
+}
+.container{
+    text-align: center;
+}
+i{
+    background-color: #702C91;
+    width: 10px;
+    height: 4px;
+}
+
+
